@@ -27,26 +27,11 @@ public class Attributes {
 
     private Resistance resistance;// 抗性
 
-    private Condition condition;// 状态
+    private Boolean alive;// 存活
+    private Boolean action;// 活动
 
-    public Attributes(Integer maxHp, Integer hp, Integer lv, Integer baseAtk, Integer baseDef, Integer dodgeRate, Integer critRate, Integer critMultiplier, Integer strength, Integer agile, Integer wisdom, Integer constitution, Integer theft, Integer trade, Integer sneak, Resistance resistance) {
-        this.maxHp = maxHp;
-        this.hp = hp;
-        this.lv = lv;
-        this.baseAtk = baseAtk;
-        this.baseDef = baseDef;
-        this.dodgeRate = dodgeRate;
-        this.critRate = critRate;
-        this.critMultiplier = critMultiplier;
-        this.strength = strength;
-        this.agile = agile;
-        this.wisdom = wisdom;
-        this.constitution = constitution;
-        this.theft = theft;
-        this.trade = trade;
-        this.sneak = sneak;
-        this.resistance = resistance;
-        // condition=new Condition()
+    public Attributes() {
+        resistance=new Resistance();
     }
 
     public Integer getMaxHp() {
@@ -55,6 +40,13 @@ public class Attributes {
 
     public void setMaxHp(Integer maxHp) {
         this.maxHp = maxHp;
+    }
+
+    public void setHp(Integer hp) {
+        this.hp = hp;
+        if(hp<0){
+            alive=false;
+        }
     }
 
     public void increaseHp(Integer hp) {
@@ -67,7 +59,7 @@ public class Attributes {
     public void decreaseHp(Integer hp) {
         this.hp -= hp;
         if (this.hp < 0) {
-            condition.dead();
+            alive = false;
         }
     }
 
@@ -183,11 +175,39 @@ public class Attributes {
         this.resistance = resistance;
     }
 
-    public Condition getCondition() {
-        return condition;
+    public Boolean isAlive() {
+        return alive;
     }
 
-    public void setCondition(Condition condition) {
-        this.condition = condition;
+    public Boolean getAction() {
+        return action;
+    }
+
+    public void setAction(Boolean action) {
+        this.action = action;
+    }
+
+    @Override
+    public String toString() {
+        return "Attributes{" +
+                "maxHp=" + maxHp +
+                ", hp=" + hp +
+                ", lv=" + lv +
+                ", baseAtk=" + baseAtk +
+                ", baseDef=" + baseDef +
+                ", dodgeRate=" + dodgeRate +
+                ", critRate=" + critRate +
+                ", critMultiplier=" + critMultiplier +
+                ", strength=" + strength +
+                ", agile=" + agile +
+                ", wisdom=" + wisdom +
+                ", constitution=" + constitution +
+                ", theft=" + theft +
+                ", trade=" + trade +
+                ", sneak=" + sneak +
+                ", resistance=" + resistance +
+                ", alive=" + alive +
+                ", action=" + action +
+                '}';
     }
 }

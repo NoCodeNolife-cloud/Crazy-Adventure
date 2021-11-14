@@ -49,4 +49,14 @@ public abstract class Item {
     public void setQuality(Quality quality) {
         this.quality = quality;
     }
+
+    @Override
+    public String toString() {
+        return "Item{" +
+                "name='" + name + '\'' +
+                ", value=" + value +
+                ", number=" + number +
+                ", quality=" + quality +
+                '}';
+    }
 }

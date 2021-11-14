@@ -17,4 +17,11 @@ public class SmallMedicineBottle extends Potion implements TakeEffect {
     public void effectTo(Creature creature) {
 
     }
+
+    @Override
+    public String toString() {
+        return "SmallMedicineBottle{" +
+                "addHpRate=" + addHpRate +
+                '}';
+    }
 }

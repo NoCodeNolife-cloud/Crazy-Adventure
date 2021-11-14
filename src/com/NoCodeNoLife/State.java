@@ -11,4 +11,11 @@ public abstract class State {
     public void decreaseRounds() {
         --rounds;
     }
+
+    @Override
+    public String toString() {
+        return "State{" +
+                "rounds=" + rounds +
+                '}';
+    }
 }

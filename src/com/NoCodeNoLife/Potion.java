@@ -16,4 +16,11 @@ public abstract class Potion extends Item {
     public void decreaseRounds() {
         --rounds;
     }
+
+    @Override
+    public String toString() {
+        return "Potion{" +
+                "rounds=" + rounds +
+                '}';
+    }
 }

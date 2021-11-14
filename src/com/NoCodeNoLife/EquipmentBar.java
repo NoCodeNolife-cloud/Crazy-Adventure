@@ -7,4 +7,11 @@ package com.NoCodeNoLife;
 public class EquipmentBar {
 
     private Helmet helmet;//头盔
+
+    @Override
+    public String toString() {
+        return "EquipmentBar{" +
+                "helmet=" + helmet +
+                '}';
+    }
 }
